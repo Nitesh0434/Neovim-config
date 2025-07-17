@@ -18,6 +18,8 @@ require "paq" {
     "nvim-lualine/lualine.nvim";  -- statusline plugin
     "nvim-tree/nvim-web-devicons"; -- for nice icons in lualine
     "rafamadriz/friendly-snippets";  -- thousands of snippets in VSCode format
+    --startup ui
+    "goolord/alpha-nvim";
 
 
     -- treesitter

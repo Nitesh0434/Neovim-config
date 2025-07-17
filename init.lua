@@ -10,6 +10,7 @@ require("nitesh.telescope")
 require("nitesh.treesitter")
 require("nitesh.which-key")
 
+require("nitesh.alpha")
 
 
 
