@@ -12,7 +12,7 @@ require("nitesh.which-key")
 require("nitesh.alpha")
 require("nitesh.null-ls")
 require("nitesh.gitsigns")
-
+require("nitesh.terminal")
 
 
 

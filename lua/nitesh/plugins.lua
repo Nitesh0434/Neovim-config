@@ -22,6 +22,7 @@ require "paq" {
     "goolord/alpha-nvim";
     
     "nvimtools/none-ls.nvim"; -- formatter /linter
+    "akinsho/nvim-toggleterm.lua"; -- terminal
 
 
     -- treesitter
