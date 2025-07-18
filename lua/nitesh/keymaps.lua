@@ -35,16 +35,9 @@ vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { noremap = true, silent =
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { noremap = true, silent = true })
 vim.keymap.set("n", "gr", vim.lsp.buf.references, { noremap = true, silent = true })
 
--- git
 
-local gs = require("gitsigns")
-local wk = require("which-key")
 
--- Git Keymaps using Lua functions (recommended)
-vim.keymap.set("n", "<leader>Gs", gs.stage_hunk, { desc = "Git: Stage hunk" })
-vim.keymap.set("n", "<leader>Gu", gs.undo_stage_hunk, { desc = "Git: Undo stage hunk" })
-vim.keymap.set("n", "<leader>Gr", gs.reset_hunk, { desc = "Git: Reset hunk" })
-vim.keymap.set("n", "<leader>Gp", gs.preview_hunk, { desc = "Git: Preview hunk" })
-vim.keymap.set("n", "<leader>Gb", function() gs.blame_line({ full = true }) end, { desc = "Git: Blame line" })
+
+
 
 

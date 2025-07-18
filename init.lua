@@ -9,8 +9,9 @@ require("nitesh.nvimtree")
 require("nitesh.telescope")
 require("nitesh.treesitter")
 require("nitesh.which-key")
-
 require("nitesh.alpha")
+require("nitesh.null-ls")
+require("nitesh.gitsigns")
 
 
 

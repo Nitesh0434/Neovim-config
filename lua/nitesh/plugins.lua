@@ -20,6 +20,8 @@ require "paq" {
     "rafamadriz/friendly-snippets";  -- thousands of snippets in VSCode format
     --startup ui
     "goolord/alpha-nvim";
+    
+    "nvimtools/none-ls.nvim"; -- formatter /linter
 
 
     -- treesitter
