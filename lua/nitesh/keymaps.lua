@@ -66,9 +66,6 @@ vim.api.nvim_set_keymap(
   ":!flake8 %<CR>",
   { noremap = true, silent = true }
 )
--- for opening terminal vertically 
-vim.api.nvim_set_keymap("n", "<leader>v", "<cmd>ToggleTerm direction=vertical<CR>", {noremap = true, silent = true})
-
 
 
 
