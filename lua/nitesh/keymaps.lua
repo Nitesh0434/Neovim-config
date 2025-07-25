@@ -11,7 +11,7 @@ vim.keymap.set("n", "<Esc><Esc>", ":nohlsearch<CR>", { noremap = true, silent = 
 vim.keymap.set({"v","i"}, "<Del>", '"_d', { noremap = true, silent = true })
 
 
-vim.keymap.set("n", "<C-n>", function()
+vim.keymap.set("n", "<C-m>", function()
   local cur_win = vim.api.nvim_get_current_win()
   vim.cmd("wincmd h")  -- Try to go left
   if vim.api.nvim_get_current_win() == cur_win then
@@ -67,6 +67,57 @@ vim.api.nvim_set_keymap(
   { noremap = true, silent = true }
 )
 
+vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { noremap = true })
+
+
+-- In terminal-normal mode, pressing "h" hides the float terminal
+vim.keymap.set("t", "q", function()
+  if float_term:is_open() then
+    float_term:toggle()
+  elseif vertical_term:is_open() then
+    vertical_term:toggle()
+  end
+end, { noremap = true, silent = true })
+
+-- Duplicate line or selection down
+local function duplicate_down()
+  local mode = vim.fn.mode()
+  if mode == "v" or mode == "V" then
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("y'>pgv", true, false, true), "n", true)
+  elseif mode == "i" then
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>yypi", true, false, true), "n", true)
+  else
+    vim.api.nvim_feedkeys("yyp", "n", true)
+  end
+end
+
+-- Duplicate line or selection up
+local function duplicate_up()
+  local mode = vim.fn.mode()
+  if mode == "v" or mode == "V" then
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("y'<Pgv", true, false, true), "n", true)
+  elseif mode == "i" then
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>yyPi", true, false, true), "n", true)
+  else
+    vim.api.nvim_feedkeys("yyP", "n", true)
+  end
+end
+
+vim.keymap.set({ "n", "i", "v" }, "<C-S-Down>", duplicate_down, { desc = "Duplicate line/selection down", silent = true })
+vim.keymap.set({ "n", "i", "v" }, "<C-S-Up>", duplicate_up, { desc = "Duplicate line/selection up", silent = true })
+
+
+-- Move line down from insert mode
+vim.keymap.set("i", "<C-Down>", function()
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>:m .+1<CR>==gi", true, false, true), "n", true)
+end, { desc = "Move line down", silent = true })
+
+-- Move line up from insert mode
+vim.keymap.set("i", "<C-Up>", function()
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>:m .-2<CR>==gi", true, false, true), "n", true)
+end, { desc = "Move line up", silent = true })
 
 
 
+  
+  

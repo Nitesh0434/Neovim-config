@@ -1,5 +1,15 @@
 --plugins
 
+
+vim.g.VM_maps = {
+  ["Add Cursor Down"] = "<C-Down>",
+  ["Add Cursor Up"] = "<C-Up>",
+}
+  
+vim.g.VM_set_statusline = 0 -- Do not mess with your statusline
+vim.g.VM_show_warnings = 0  -- Suppress visual-multi warnings
+vim.g.VM_default_mappings = 0
+
 -- Load paq
 require "paq" {
     "savq/paq-nvim"; -- Let Paq manage itself
@@ -63,11 +73,16 @@ require "paq" {
             require('gitsigns').setup()
         end
     };
+    {
+        "mg979/vim-visual-multi",
+        branch = "master"
+    };
+
 
 
 
 }
 require("nvim-surround").setup()
 require("nvim-autopairs").setup{}
-
-
+     
+     
