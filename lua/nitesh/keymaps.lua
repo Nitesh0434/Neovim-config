@@ -70,14 +70,6 @@ vim.api.nvim_set_keymap(
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { noremap = true })
 
 
--- In terminal-normal mode, pressing "h" hides the float terminal
-vim.keymap.set("t", "q", function()
-  if float_term:is_open() then
-    float_term:toggle()
-  elseif vertical_term:is_open() then
-    vertical_term:toggle()
-  end
-end, { noremap = true, silent = true })
 
 -- Duplicate line or selection down
 local function duplicate_down()

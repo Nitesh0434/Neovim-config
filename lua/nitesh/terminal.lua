@@ -55,3 +55,4 @@ vim.keymap.set("n", "<leader>v", function()
     vertical_term:toggle()
 end, { noremap = true, silent = true })
 
+
