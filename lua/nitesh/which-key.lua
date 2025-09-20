@@ -1,11 +1,12 @@
 -- In your keymaps or plugin config
-require("which-key").register({
-  G = {
-    name = "+Git", -- This shows a group under <leader>G
-    s = "Stage hunk",
-    u = "Undo stage hunk",
-    r = "Reset hunk",
-    p = "Preview hunk",
-    b = "Blame line",
-  },
-}, { prefix = "<leader>" })
+local wk = require("which-key")
+
+wk.register({
+  { "<leader>G",  group = "Git" },
+  { "<leader>Gb", desc = "Blame line" },
+  { "<leader>Gp", desc = "Preview hunk" },
+  { "<leader>Gr", desc = "Reset hunk" },
+  { "<leader>Gs", desc = "Stage hunk" },
+  { "<leader>Gu", desc = "Undo stage hunk" },
+})
+
