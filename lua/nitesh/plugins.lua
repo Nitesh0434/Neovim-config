@@ -35,11 +35,16 @@ require "paq" {
     "akinsho/nvim-toggleterm.lua"; -- terminal
 
 
-    -- treesitter
-    {
-        "nvim-treesitter/nvim-treesitter",
-        run = function() vim.cmd("TSUpdate") end
-    };
+{
+    "nvim-treesitter/nvim-treesitter",
+    run = function() vim.cmd("TSUpdate") end,
+    config = function()
+        require('nvim-treesitter.configs').setup {
+            ensure_installed = { "javascript", "html", "css", "lua", "json" },
+            highlight = { enable = true },
+        }
+    end
+};
 
     --Auto completion
     -- completion engine
