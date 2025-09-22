@@ -1,15 +1,12 @@
---plugins
-
-
 vim.g.VM_maps = {
-  ["Add Cursor Down"] = "<C-Down>",
-  ["Add Cursor Up"] = "<C-Up>",
+  ["Add Cursor Down"] = "<M-Down>",
+  ["Add Cursor Up"] = "<M-Up>",
+  ["Select Cursor Word"] = "<C-d>",   -- keep your original for multi-select
+  ["Add Cursor at End of Line"] = "<M-I>",
 }
-  
-vim.g.VM_set_statusline = 0 -- Do not mess with your statusline
-vim.g.VM_show_warnings = 0  -- Suppress visual-multi warnings
+vim.g.VM_set_statusline = 0
+vim.g.VM_show_warnings = 0
 vim.g.VM_default_mappings = 0
-
 -- Load paq
 require "paq" {
     "savq/paq-nvim"; -- Let Paq manage itself

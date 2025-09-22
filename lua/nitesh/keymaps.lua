@@ -5,10 +5,10 @@ vim.keymap.set("n","<C-s>",":w<CR>",{ noremap = true, silent = true}) -- save wh
 
 vim.keymap.set("n","<C-q>",":wq<CR>",{noremap = true, silent = true}) -- save and exit 
 
-vim.keymap.set("n", "<leader>c", ":bd<CR>", { noremap = true, silent = true }) -- close the current buffer
+vim.keymap.set("n", "<leader>q", ":bd<CR>", { noremap = true, silent = true }) -- close the current buffer
 vim.keymap.set("i", "jj", "<Esc>", { noremap = true }) -- escape the insert mode
 vim.keymap.set("n", "<Esc><Esc>", ":nohlsearch<CR>", { noremap = true, silent = true }) -- remove yellow highlighted color when you search something
-vim.keymap.set({"v","i"}, "<Del>", '"_d', { noremap = true, silent = true })
+
 
 
 vim.keymap.set("n", "<C-m>", function()
@@ -39,7 +39,7 @@ vim.keymap.set("n", "gr", vim.lsp.buf.references, { noremap = true, silent = tru
 --prettier format/linter
 vim.keymap.set("n", "<leader>j", function()
   vim.lsp.buf.format({ async = true })
-end, { noremap = true, silent = true, desc = "Format current buffer" })
+end, { noremap = true, silent = true, desc = "Format current buffer" }) -- works for js for formating fixing space ,indiction
 
 --python formatter
 
@@ -68,8 +68,6 @@ vim.api.nvim_set_keymap(
 )
 
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { noremap = true })
-
-
 
 -- Duplicate line or selection down
 local function duplicate_down()
@@ -110,6 +108,27 @@ vim.keymap.set("i", "<C-Up>", function()
 end, { desc = "Move line up", silent = true })
 
 
+-- Add cursor down + select word
+vim.api.nvim_set_keymap(
+  "n",
+  "<M-Down>",
+  "<Cmd>VMAddCursorDown<CR><Cmd>VMSelectCursorWord<CR>",
+  { noremap = true, silent = true }
+)
 
+-- Add cursor up + select word
+vim.api.nvim_set_keymap(
+  "n",
+  "<M-Up>",
+  "<Cmd>VMAddCursorUp<CR><Cmd>VMSelectCursorWord<CR>",
+  { noremap = true, silent = true }
+)
+
+
+-- Make backspace delete selected text in visual mode
+vim.api.nvim_set_keymap('v', '<BS>', '"_d', { noremap = true, silent = true })
   
-  
+-- Undo / Redo like VSCode
+
+vim.keymap.set("i", "<C-z>", "<C-o>u", { noremap = true, silent = true })         -- Undo
+vim.keymap.set("i", "<C-y>", "<C-o><C-r>", { noremap = true, silent = true })    -- Redo alternative
