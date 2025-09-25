@@ -1,4 +1,6 @@
+vim.o.termguicolors = true
 require("nitesh.plugins")
+require("nitesh.colors")
 require("nitesh.options")
 require("nitesh.colorscheme")
 require("nitesh.keymaps")

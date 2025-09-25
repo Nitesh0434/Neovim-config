@@ -21,7 +21,6 @@ end, { noremap = true, silent = true , nowait =true})
 
 
 
-
 --plugins
 
 vim.keymap.set("n","<leader>e",":NvimTreeToggle<CR>",{ noremap = true, silent = true })
@@ -98,12 +97,12 @@ vim.keymap.set({ "n", "i", "v" }, "<C-S-Up>", duplicate_up, { desc = "Duplicate 
 
 
 -- Move line down from insert mode
-vim.keymap.set("i", "v" <C-Down>", function()
+vim.keymap.set({"i", "v"}, "<C-Down>", function()
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>:m .+1<CR>==gi", true, false, true), "n", true)
 end, { desc = "Move line down", silent = true })
 
 -- Move line up from insert mode
-vim.keymap.set("i", "v" "<C-Up>", function()
+vim.keymap.set({"i", "v"}, "<C-Up>", function()
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>:m .-2<CR>==gi", true, false, true), "n", true)
 end, { desc = "Move line up", silent = true })
 

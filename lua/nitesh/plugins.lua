@@ -27,7 +27,8 @@ require "paq" {
     "rafamadriz/friendly-snippets";  -- thousands of snippets in VSCode format
     --startup ui
     "goolord/alpha-nvim";
-    
+    "norcalli/nvim-colorizer.lua";
+
     "nvimtools/none-ls.nvim"; -- formatter /linter
     "akinsho/nvim-toggleterm.lua"; -- terminal
 
